@@ -1,8 +1,7 @@
 {
     "name": "uv",
     "build": {
-        "context": "..",
-        "dockerfile": "Dockerfile"
+        "dockerfile": "../Dockerfile"
     },
     "features": {
         "ghcr.io/dhoeric/features/hadolint:1": {}
@@ -28,16 +27,15 @@
                 "yzhang.markdown-all-in-one"
             ],
             "settings": {
-                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.defaultProfile.linux": "bash",
                 "terminal.integrated.profiles.linux": {
-                    "zsh": {
-                        "path": "/bin/zsh"
+                    "bash": {
+                        "path": "/bin/bash"
                     }
                 }
             }
         }
     },
     "postCreateCommand": "uv python pin $(cat .python-version) && uv sync --dev",
-    "postStartCommand": "uv run pre-commit install",
-    "remoteUser": "vscode"
+    "postStartCommand": "uv run pre-commit install"
 }
